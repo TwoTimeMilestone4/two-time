@@ -39,7 +39,7 @@ fn get_theme() -> Theme {
                 let l = line.trim();
                 if l.starts_with("export TWO_TIME_THEME") || l.starts_with("TWO_TIME_THEME=") {
                     if let Some(val) = l.split('=').nth(1) {
-                        let clean = val.trim().trim_matches('"').trim_matches(''').trim();
+                        let clean = val.trim().trim_matches(|c| c == '"' || c == '\'').trim();
                         if !clean.is_empty() { return Theme::from_name(clean); }
                     }
                 }
