@@ -17,6 +17,7 @@ pub struct Theme {
 impl Theme {
     pub const SYMBOL: &'static str = "꥟";
     const SEP: &'static str = "";
+    const SEP_FALLBACK: &'static str = ">";
     pub fn azuretime() -> Self { Self { name:"azuretime", ok:"respawned", err:"despawned", desc:"Family Home", welcome:"\n  ꥟ AZURETIME\n", user_bg:(122,165,214), dir_bg:(45,45,45), git_bg:(139,38,53), sym_ok:(122,165,214), sym_err:(139,38,53) } }
     pub fn two_time() -> Self { Self { name:"two_time", ok:"respawned", err:"failed", desc:"Dark Slate Blue", welcome:"\n  ꥟ TWO TIME\n", user_bg:(90,106,138), dir_bg:(30,42,58), git_bg:(20,20,20), sym_ok:(90,106,138), sym_err:(139,38,53) } }
     pub fn blue() -> Self { Self { name:"azure", ok:"remembered", err:"forgotten", desc:"Azurewrath", welcome:"\n  ꥟ AZURE\n", user_bg:(106,76,147), dir_bg:(10,10,10), git_bg:(58,42,74), sym_ok:(106,76,147), sym_err:(200,200,200) } }
@@ -32,8 +33,21 @@ impl Theme {
         "void".to_string()
     }
     fn seg(t: &str, bg: (u8,u8,u8), fg: (u8,u8,u8), next: Option<(u8,u8,u8)>) -> String {
+        let use_fb = Self::use_fallback();
+        let sep = if use_fb { Self::SEP_FALLBACK } else { Self::SEP };
+
         let nb=next.unwrap_or((18,21,26));
-        format!("{}{}", format!(" {} ", t).on_truecolor(bg.0,bg.1,bg.2).truecolor(fg.0,fg.1,fg.2), Self::SEP.truecolor(bg.0,bg.1,bg.2).on_truecolor(nb.0,nb.1,nb.2))
+        let sep_char = if Self::use_fallback() { Self::SEP_FALLBACK } else { Self::SEP };
+        format!("{}{}", format!(" {} ", t).on_truecolor(bg.0,bg.1,bg.2).truecolor(fg.0,fg.1,fg.2), sep_char.truecolor(bg.0,bg.1,bg.2).on_truecolor(nb.0,nb.1,nb.2))
+    }
+    fn use_fallback() -> bool {
+        if let Ok(v) = std::env::var("TWO_TIME_NO_POWERLINE") { if v=="1" || v.to_lowercase()=="true" { return true; } }
+        if let Ok(c) = std::fs::read_to_string("/etc/two-time/fallback") { if c.trim()=="1" { return true; } }
+        // auto-detect: check if powerline font installed
+        if let Ok(out) = std::process::Command::new("sh").arg("-c").arg("fc-list :charset=E0B0 | grep -qi powerline || fc-list | grep -qi Nerd").status() {
+            if !out.success() { return true; }
+        }
+        false
     }
     fn osc_title(title: &str) -> String { format!("]0;{}", title) }
     pub fn prompt(&self, path: &str, last: i32) -> String {
@@ -43,7 +57,7 @@ impl Theme {
         let mut p=String::new();
         p+=&Self::seg(&user_host, self.user_bg, (18,21,26), Some(self.dir_bg));
         p+=&Self::seg(path, self.dir_bg, (200,205,214), Some(if Self::git_branch().is_some(){self.git_bg}else{final_bg}));
-        if let Some(b)=Self::git_branch() { p+=&Self::seg(&format!("󰘬 {}", b), self.git_bg, (255,255,255), Some(final_bg)); }
+        if let Some(b)=Self::git_branch() { let git_icon = if Self::use_fallback() { "" } else { "󰘬" }; p+=&Self::seg(&format!("{} {}", git_icon, b), self.git_bg, (255,255,255), Some(final_bg)); }
         let sym_col=if last==0 { self.sym_ok } else { self.sym_err };
         let sym=format!(" {} ", Self::SYMBOL).truecolor(sym_col.0,sym_col.1,sym_col.2).bold();
         let body=p+&format!("{} {} ", format!("{}", Self::SEP).on_truecolor(final_bg.0,final_bg.1,final_bg.2).truecolor(final_bg.0,final_bg.1,final_bg.2), sym);
