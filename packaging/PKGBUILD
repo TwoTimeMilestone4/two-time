@@ -1,0 +1,28 @@
+# Maintainer: TwoTimeMilestone4
+pkgname=two-time-shell
+pkgver=1.0.0
+pkgrel=1
+pkgdesc="lore-coding shell with Two Time vibe ꥟ - Family Home For The Reborn"
+arch=('x86_64')
+url="https://github.com/TwoTimeMilestone4/two-time-shell"
+license=('MIT')
+depends=('zsh' 'noto-fonts' 'noto-fonts-extra')
+makedepends=('cargo' 'rust')
+source=("$pkgname-$pkgver.tar.gz::https://github.com/TwoTimeMilestone4/two-time-shell/archive/v$pkgver.tar.gz")
+sha256sums=('SKIP')
+
+build() {
+  cd "$pkgname-$pkgver"
+  cargo build --release
+}
+
+package() {
+  cd "$pkgname-$pkgver"
+  install -Dm755 target/release/two-time-shell "$pkgdir/usr/bin/two-time"
+  install -Dm644 LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
+  install -Dm644 README.md "$pkgdir/usr/share/doc/$pkgname/README.md"
+  # add to shells in post_install via .install file
+}
+
+# post install hook
+# echo "/usr/bin/two-time" >> /etc/shells handled in two-time-shell.install

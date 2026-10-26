@@ -1,0 +1,6 @@
+#!/bin/bash
+set -e
+if ! grep -q "/usr/bin/two-time" /etc/shells; then
+  echo "/usr/bin/two-time" >> /etc/shells
+fi
+echo "  ꥟ two-time-shell installed — run chsh -s /usr/bin/two-time"

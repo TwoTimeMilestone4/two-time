@@ -1,0 +1,15 @@
+[package]
+name = "two-time-shell"
+version = "1.0.0"
+edition = "2021"
+license = "MIT"
+description = "A fragile cultist that holds a terrible secret. Bearing nothing other than a sleek dagger and a manic smile, they're able to earn a second life through risk and sacrifice."
+authors = ["TwoTimeMilestone4"]
+repository = "https://github.com/TwoTimeMilestone4"
+homepage = "https://github.com/TwoTimeMilestone4"
+
+[dependencies]
+rustyline = "14"
+colored = "2.1"
+dirs = "5"
+shlex = "1.3"

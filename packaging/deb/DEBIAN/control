@@ -1,0 +1,13 @@
+Package: two-time-shell
+Version: 1.0.0
+Section: shells
+Priority: optional
+Architecture: amd64
+Maintainer: TwoTimeMilestone4 <https://github.com/TwoTimeMilestone4>
+Depends: zsh, fonts-noto, fonts-noto-extra, libc6
+Description: lore-coding shell with Two Time vibe ꥟
+ A fragile cultist that holds a terrible secret.
+ Bearing nothing other than a sleek dagger and a manic smile,
+ they're able to earn a second life through risk and sacrifice.
+ Symbol ꥟ (U+A95F) everywhere. Themes: azuretime, two_time, azure, spawn.
+ Login shell via chsh -s /usr/bin/two-time

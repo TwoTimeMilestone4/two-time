@@ -1,0 +1,13 @@
+post_install() {
+  echo "  ꥟ two-time-shell installed"
+  if ! grep -q "/usr/bin/two-time" etc/shells 2>/dev/null; then
+    echo "/usr/bin/two-time" >> etc/shells
+  fi
+  if ! grep -q "/usr/bin/two-time" /etc/shells; then
+    echo "/usr/bin/two-time" | sudo tee -a /etc/shells
+  fi
+  echo "  run: chsh -s /usr/bin/two-time"
+  echo "  requires: Noto font for ꥟ U+A95F — sudo pacman -S noto-fonts noto-fonts-extra"
+}
+
+post_upgrade() { post_install; }
