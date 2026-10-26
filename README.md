@@ -1,4 +1,4 @@
-# ꥟ two-time-shell — lore-coding
+# ꥟ two-time — lore-coding
 
 > **A fragile cultist that holds a terrible secret. Bearing nothing other than a sleek dagger and a manic smile, they're able to earn a second life through risk and sacrifice.** — FORSAKEN Wiki
 
@@ -66,11 +66,11 @@ sudo zypper install google-*
 ## ꥟ Install Shell
 
 ```bash
-git clone https://github.com/TwoTimeMilestone4/two-time-shell.git
+git clone https://github.com/TwoTimeMilestone4/two-time.git
 cd two-time-shell
 
 cargo build --release
-sudo cp target/release/two-time-shell /usr/bin/two-time
+sudo cp target/release/two-time /usr/bin/two-time
 sudo chmod +x /usr/bin/two-time
 
 # add to allowed shells
