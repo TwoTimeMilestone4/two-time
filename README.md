@@ -74,7 +74,7 @@ git clone https://github.com/TwoTimeMilestone4/two-time.git
 cd two-time
 
 cargo build --release
-sudo cp target/release/two-time-shell /usr/bin/two-time
+sudo cp target/release/two-time /usr/bin/two-time
 # or target/release/two-time if Cargo.toml name is two-time
 sudo cp target/release/two-time /usr/bin/two-time 2>/dev/null || true
 
