@@ -7,7 +7,6 @@ This is **NOT vibecoding**. This is **lore-coding**.
 A custom Linux login shell built in Rust with Two Time vibe from FORSAKEN. Symbol `꥟` (U+A95F) everywhere. Lore-checked from official FORSAKEN Wiki. Works with `chsh -s /usr/bin/two-time`.
 
 MIT License — Author: TwoTimeMilestone4 — https://github.com/TwoTimeMilestone4/two-time
-OBS: home:demonball_hype:two-time — https://build.opensuse.org/package/show/home:demonball_hype:two-time/two-time
 
 ---
 
