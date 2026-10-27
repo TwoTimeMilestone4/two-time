@@ -1,9 +1,9 @@
-Name:           two-time-shell
+Name:           two-time
 Version:        1.0.0
 Release:        1%{?dist}
 Summary:        lore-coding shell with Two Time vibe ꥟
 License:        MIT
-URL:            https://github.com/TwoTimeMilestone4/two-time-shell
+URL:            https://github.com/TwoTimeMilestone4/two-time
 Source0:        %{name}-%{version}.tar.gz
 
 BuildRequires:  cargo rust
@@ -22,7 +22,7 @@ GLORY TO THE SPAWN
 cargo build --release
 
 %install
-install -Dm755 target/release/two-time-shell %{buildroot}%{_bindir}/two-time
+install -Dm755 target/release/two-time %{buildroot}%{_bindir}/two-time
 install -Dm644 LICENSE %{buildroot}%{_datadir}/licenses/%{name}/LICENSE
 install -Dm644 README.md %{buildroot}%{_datadir}/doc/%{name}/README.md
 
