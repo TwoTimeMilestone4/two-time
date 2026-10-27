@@ -4,11 +4,11 @@ pkgver=1.0.0
 pkgrel=1
 pkgdesc="lore-coding shell with Two Time vibe ꥟ - Family Home For The Reborn"
 arch=('x86_64')
-url="https://github.com/TwoTimeMilestone4/two-time-shell"
+url="https://github.com/TwoTimeMilestone4/two-time"
 license=('MIT')
 depends=('zsh' 'noto-fonts' 'noto-fonts-extra')
 makedepends=('cargo' 'rust')
-source=("$pkgname-$pkgver.tar.gz::https://github.com/TwoTimeMilestone4/two-time-shell/archive/v$pkgver.tar.gz")
+source=("$pkgname-$pkgver.tar.gz::https://github.com/TwoTimeMilestone4/two-time/archive/v$pkgver.tar.gz")
 sha256sums=('SKIP')
 
 build() {

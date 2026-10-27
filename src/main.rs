@@ -80,7 +80,12 @@ fn main() -> rustyline::Result<()> {
     let mut rl = DefaultEditor::new()?;
     let mut last = 0;
     loop {
-        let prompt = th.prompt(&display_path(), last);
+        let cur_path = display_path();
+        // Print OSC title separately - not part of prompt, so cursor not broken
+        print!("{}", th.title(&cur_path));
+        use std::io::Write;
+        let _ = std::io::stdout().flush();
+        let prompt = th.prompt(&cur_path, last);
         match rl.readline(&prompt) {
             Ok(line) => {
                 let line = line.trim();
