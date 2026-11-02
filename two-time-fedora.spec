@@ -1,6 +1,6 @@
 Name:           two-time
 Version:        1.0.0
-Release:        1%{?dist}
+Release:        1.Fedora
 Summary:        lore-coding shell with Two Time vibe ꥟
 License:        MIT
 URL:            https://github.com/TwoTimeMilestone4/two-time
@@ -8,7 +8,7 @@ Source0:        %{name}-%{version}.tar.gz
 # GitHub tarball is TwoTimeMilestone4/two-time/archive/v1.0.0.tar.gz -> two-time-1.0.0/
 BuildRequires:  cargo rust
 Requires:       zsh
-Requires:       google-noto-fonts
+Requires:       google-noto-*
 # Fedora/RHEL: sudo dnf install google-* -y
 # openSUSE: sudo zypper install google-*
 
