@@ -4,7 +4,7 @@ Release:        2%{?dist}
 Summary:        lore-coding shell with Two Time vibe ꥟
 License:        MIT
 URL:            https://github.com/TwoTimeMilestone4/two-time
-Source0:        %{name}-%{version}.tar.gz
+Source0:        https://github.com/TwoTimeMilestone4/two-time/archive/refs/tags/v1.0.0.tar.gz
 # GitHub tarball is TwoTimeMilestone4/two-time/archive/v1.0.0.tar.gz -> two-time-1.0.0/
 BuildRequires:  cargo rust
 Requires:       zsh
