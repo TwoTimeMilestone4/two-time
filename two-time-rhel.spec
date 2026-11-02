@@ -1,3 +1,5 @@
+%global debug_package %{nil}
+
 Name:           two-time
 Version:        1.0.0
 Release:        3%{?dist}
