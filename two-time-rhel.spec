@@ -1,6 +1,6 @@
 %global debug_package %{nil}
 
-Name:           two-time-rhel
+Name:           two-time
 Version:        1.0.0
 Release:        3%{?dist}
 Summary:        lore-coding shell with Two Time vibe ꥟
