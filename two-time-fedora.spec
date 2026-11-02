@@ -1,6 +1,6 @@
 Name:           two-time
 Version:        1.0.0
-Release:        1.Fedora
+Release:        2%{?dist}
 Summary:        lore-coding shell with Two Time vibe ꥟
 License:        MIT
 URL:            https://github.com/TwoTimeMilestone4/two-time
