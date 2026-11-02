@@ -1,6 +1,6 @@
 Name:           two-time
 Version:        1.0.0
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        lore-coding shell with Two Time vibe ꥟
 License:        MIT
 URL:            https://github.com/TwoTimeMilestone4/two-time
@@ -8,9 +8,8 @@ Source0:        https://github.com/TwoTimeMilestone4/two-time/archive/refs/tags/
 # GitHub tarball is TwoTimeMilestone4/two-time/archive/v1.0.0.tar.gz -> two-time-1.0.0/
 BuildRequires:  cargo rust
 Requires:       zsh
-Requires:       google-noto-*
-# Fedora/RHEL: sudo dnf install google-* -y
-# openSUSE: sudo zypper install google-*
+Requires:       google-noto-sans-rejang-fonts
+Requires:       google-noto-fonts-all
 
 %description
 A fragile cultist that holds a terrible secret. Bearing nothing other than a sleek dagger and a manic smile, they're able to earn a second life through risk and sacrifice.
