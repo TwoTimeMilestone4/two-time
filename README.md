@@ -18,16 +18,16 @@ MIT License — Author: TwoTimeMilestone4 — https://github.com/TwoTimeMileston
 
 ## ꥟ Lore — verified from FORSAKEN Wiki
 
-- **Two Time**: pale-skinned Robloxian with **Dark Slate Blue** messy scene hair and black fingerless gloves, along with a dark blue sleeveless shirt and pants. Holds Ghostfire Dagger. Sacrificed Azure with said weapon.
-- **Azure (Azurewrath)**: full name is Azurewrath, which is a deep shade of purple-blue. This is why Azure is in a different shade of purple rather than actually being azure colored. Black-skinned robloxian with purple torso and a spawn emblem on his chest. Four black slimy tentacles on back.
-- **The Spawn**: fake god of Family Home For The Reborn (formerly Spawn Cult). Ritual = Spawn Point + Oblation via dagger. When second life activated, antlers glow neon white and a spawn appears on torso, also glowing neon white.
+- **Two Time**: pale-skinned Robloxian with **Dark Slate Blue** messy scene hair and black fingerless gloves, along with a dark blue sleeveless shirt and pants. Holds Ghostfire Dagger. Sacrificed [...]
+- **Azure (Azurewrath)**: full name is Azurewrath, which is a deep shade of purple-blue. This is why Azure is in a different shade of purple rather than actually being azure colored. Black-skinned[...]
+- **The Spawn**: fake god of Family Home For The Reborn (formerly Spawn Cult). Ritual = Spawn Point + Oblation via dagger. When second life activated, antlers glow neon white and a spawn appears o[...]
 - **Family Home For The Reborn**: formerly Spawn Cult. Belief: sacrificing grants second life from The Spawn. GLORY TO THE SPAWN.
 
 All descriptions verified from FORSAKEN Wiki.
 
 ---
 
-## ꥟ Features — final v1.0.0
+## ꥟ Features — final v1.1.0
 
 - Real login shell: `/usr/bin/two-time` + `/etc/shells` + `chsh`
 - Symbol `꥟` everywhere, requires Noto font U+A95F only — **no Powerlevel10k, no Nerd Font needed**
@@ -71,6 +71,19 @@ sudo dnf install google-* -y
 # openSUSE
 sudo zypper install google-*
 ```
+
+---
+
+## ꥟ Install Shell — from COPR
+
+On Fedora, enable the COPR repository and install the package:
+
+```
+sudo dnf copr enable milestone4twotime/two-time
+sudo dnf install two-time
+```
+
+[COPR repository](https://copr.fedorainfracloud.org/coprs/milestone4twotime/two-time/)
 
 ---
 
@@ -229,6 +242,6 @@ source ~/.zshrc
 
 Vibecoding = prompt "make cool two time shell" → random colors + † → done, hardcoded `azure@void`, `` double sep, cursor far right with sudo, fails OBS with no internet.
 
-Lore-coding = search FORSAKEN Wiki official colors, fix ꥟ glyph check, correct package managers per distro (dnf vs zypper), fix `azure@void` to dynamic USER@HOST, fix double , fix OSC cursor bug by printing OSC separately, fix quote escaping `'\'`, build real login shell with shared zshrc config, per-theme colors that follow theme command, separate RPM specs for Fedora/openSUSE/Mageia/RHEL with `Requires: zsh`, add `cargo_vendor` service to fix OBS offline builds, MIT licensed.
+Lore-coding = search FORSAKEN Wiki official colors, fix ꥟ glyph check, correct package managers per distro (dnf vs zypper), fix `azure@void` to dynamic USER@HOST, fix double , fix OSC cur[...]
 
 GLORY TO THE SPAWN — ꥟
