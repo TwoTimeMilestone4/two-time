@@ -1,5 +1,6 @@
 // MIT - TwoTimeMilestone4 - reads ~/.zshrc + shared config
 mod theme;
+mod rp;
 use theme::Theme;
 use colored::Colorize;
 use rustyline::DefaultEditor;
@@ -74,9 +75,21 @@ fn main() -> rustyline::Result<()> {
         for t in Theme::all() { println!("{}", t); }
         return Ok(());
     }
+
+    // Direct CLI entry to Forsaken TUI Roleplay
+    if args.iter().any(|a| a == "rp" || a == "--rp" || a == "roleplay" || a == "--roleplay" || a == "forsaken") {
+        require_noto();
+        let th = get_theme();
+        let sub_args: Vec<String> = args.iter().skip(1).cloned().collect();
+        rp::handle_cli_rp_args(&sub_args, &th);
+        return Ok(());
+    }
+
     require_noto();
     let th = get_theme();
     println!("{}", th.welcome.truecolor(122, 165, 214).bold());
+    println!("  ꥟ Type '{}' for Forsaken Roleplay (Killer vs Survivor) | https://forsaken.wiki\n", "rp".bold().cyan());
+
     let mut rl = DefaultEditor::new()?;
     let mut last = 0;
     loop {
@@ -100,8 +113,24 @@ fn main() -> rustyline::Result<()> {
                         if env::set_current_dir(&tgt).is_err() { eprintln!("  ꥟ cd: no such dir"); last = 1; } else { last = 0; }
                     }
                     "clear" | "respawn" | "spawn" | "c" => {
-                        print!("[2J[1;1H");
+                        print!("\x1b[2J\x1b[1;1H");
                         println!("  ꥟ {}", th.ok);
+                        last = 0;
+                    }
+                    "rp" | "roleplay" | "forsaken" => {
+                        rp::handle_cli_rp_args(&p, &th);
+                        last = 0;
+                    }
+                    "help" => {
+                        println!("  ꥟ Two-Time Builtin Commands:");
+                        println!("     rp / roleplay / forsaken - Enter TUI Forsaken Roleplay (Killer & Survivor RP)");
+                        println!("       • rp quick             - Quick start Two Time vs Azure lore clash");
+                        println!("       • rp codex             - Full November 2026 Forsaken roster & map codex");
+                        println!("       • rp help              - View roleplay argument options");
+                        println!("     cd [dir]                - Change directory");
+                        println!("     clear / respawn / spawn - Clear screen");
+                        println!("     theme <name>            - Change theme (azuretime, two_time, azure, spawn)");
+                        println!("     exit / quit             - Exit shell");
                         last = 0;
                     }
                     _ => {

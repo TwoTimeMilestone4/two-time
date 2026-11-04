@@ -1,5 +1,11 @@
 # ꥟ two-time — lore-coding
 
+![Roblox Forsaken](https://img.shields.io/badge/Roblox-Forsaken-000000?style=for-the-badge&logo=roblox&logoColor=white)
+![Rust](https://img.shields.io/badge/Rust-Custom_Shell-CEA185?style=for-the-badge&logo=rust&logoColor=black)
+![Linux](https://img.shields.io/badge/Linux-Login_Shell-FCC624?style=for-the-badge&logo=linux&logoColor=black)
+![Lore Coding](https://img.shields.io/badge/Lore--Coding-꥟_Verified-5A6A8A?style=for-the-badge)
+![License MIT](https://img.shields.io/badge/License-MIT-40826D?style=for-the-badge)
+
 > **A fragile cultist that holds a terrible secret. Bearing nothing other than a sleek dagger and a manic smile, they're able to earn a second life through risk and sacrifice.** — FORSAKEN Wiki
 
 This is **NOT vibecoding**. This is **lore-coding**.
@@ -28,7 +34,8 @@ All descriptions verified from FORSAKEN Wiki.
 - Own theme — NOT p10k — ` ꥟  user@host path {branch}  ꥟ ` — no `` double sep bug, no `||` fallback, no `[]` brackets
 - Dynamic `user@host` — reads real USER + HOSTNAME from `$HOSTNAME` / `hostname` / `/etc/hostname`, not hardcoded `azure@void`
 - OSC title `\x1b]0;...\x07` printed **separately** from prompt — fixes cursor bug where `sudo` appeared far right
-- Builtins: `cd`, `clear` / `respawn` / `spawn`, `exit`
+- Builtins: `cd`, `clear` / `respawn` / `spawn`, `exit`, `help`, and `rp` / `roleplay` / `forsaken`
+- TUI Forsaken Roleplay: Interactive encounters between Killers and Survivors verified from https://forsaken.wiki
 - External command execution + history via rustyline
 - Shared config: `~/.zshrc` (`TWO_TIME_THEME`) + `~/.config/two-time/config` — both zsh and Rust shell read it
 - Theme switch changes colors: `two-time theme <name>` writes to both config files
@@ -115,6 +122,78 @@ chsh -s /usr/bin/two-time
 
 ---
 
+
+## ꥟ TUI Forsaken Roleplay — Killer vs Survivor
+
+An interactive TUI roleplay system lore-coded directly from [FORSAKEN Wiki](https://forsaken.wiki).
+
+- **Play as Survivor (All 12 as of November 2026)**:
+  - **Two Time** (Sentinel/Survivalist — Ghostfire Dagger, Oblation gauge, Second Life ritual: *"Never again shall I wonder. Never again shall I hurt. Never again shall I love."*)
+  - **Chance** (Sentinel — Loaded revolver & coin-flip trick shots)
+  - **Shedletsky** (Sentinel — Telamon Illumina sword, fried chicken feast & admin roar)
+  - **Elliot** (Support — Pizza delivery boxes, healing & scalding sauce throw)
+  - **Guest 1337** (Sentinel — Tactical riot shield & combat knuckles)
+  - **Noob** (Survivalist — Bloxy Cola chugging, panic dodges & iconic "OOF!")
+  - **007n7** (Survivalist — Holographic decoys, packet desync, adoptive father of c00lkidd)
+  - **Builderman** (Support — Master architect, automated Stud Sentries & Medical Dispensers)
+  - **Dusekkar** (Support — Arch-engineer, Golden Ban Hammer & Spawn Protection shields)
+  - **Jane Doe** (Sentinel/Support — March 18th investigator, Cabin files & Flashlight taser)
+  - **Taph** (Support — Strategic trapper, spring-loaded snares & caltrop scatter)
+  - **Veeronica** (Survivalist/Mobility — Rebellious cyber-skater, jet-board kickflips & bumper mode)
+
+- **Play as Killer (All 8 as of November 2026)**:
+  - **Azure / Aspen** (Trapper/Area Denial — Spawn Cult botanist sacrificed by Two Time, 4 black tentacles & Seeker Bulbs)
+  - **Slasher / Project 13** (Attrition — Undead behemoth guided by the Necrobloxicon, machete & chainsaw)
+  - **c00lkidd** (Versatile/Starter — Leader of Team c00lkidd, Walkspeed Override & flaming pizza minions)
+  - **John Doe** (Trapper/Set-play — March 18th glitch myth, digital corrupt spikes & crash protocol)
+  - **1x1x1x1** (Ranged/Attrition — 4th-dimensional cosmic deity, shattered emerald blades of entropy)
+  - **Guest 666** (Burst/Snowball — Demonic banned guest, infernal cries, obsidian claws & blood frenzy)
+  - **Noli** (Rushdown/Deception — 2010 platform myth, Void Star decay, Void Rush & hallucination phantoms)
+  - **Nosferatu** (Sin of Gluttony — Blood Hook chain impalement, vampiric life drain & cataclysmic blood surge)
+
+- **Canonical Maps (14 Arenas from forsaken.wiki)**:
+  - Reborn Family Abode (Family Home For The Reborn / Altar of The Spawn)
+  - Overgrown Botanical Conservatory (Aspen's Greenhouse)
+  - Glass Houses (Classic Roblox transparent arena)
+  - Roblox HQ (Corporate cubicles & rainy rooftop)
+  - Builder Brothers Pizza (Haunted restaurant & brick ovens)
+  - Bloodfell Manor (Gothic vampire estate)
+  - Familiar Ruins (Ancient Robloxia altars)
+  - Natural Disaster Island (Cataclysm watchtower & acid storms)
+  - Cake Factory (Industrial mixers & conveyor belts)
+  - Yorick's Resting Place (Haunted graveyard & crypts)
+  - Area 51 (Underground containment bunkers)
+  - Sword Fight on the Heights (SFOTH skybridges)
+  - Underground War (Trenches & mud bunkers)
+  - Planet Voss (Alien crimson dust wasteland)
+
+- **Mutual Roleplay Features**:
+  - Freeform speech & emote input (`*grips dagger* "Aspen..."`)
+  - Canonical voice lines & quotes verified from [FORSAKEN Wiki](https://forsaken.wiki)
+  - 60 unique character abilities with health bars, resource gauges, and Two Time's Second Life revival
+  - Emotional stances: Defiant, Sorrowful/Regretful, Fanatical (Glory to The Spawn), Cold & Calculating, Terrified/Panicked, Mocking & Taunting
+  - Full in-game Forsaken Codex
+  - Mid-session map relocation with dynamic ambient events
+
+- **CLI & Shell Commands**:
+  ```bash
+  # Launch interactive Forsaken Roleplay
+  two-time rp
+
+  # Quick start canonical lore clashes
+  two-time rp quick
+  two-time rp codex
+  two-time rp --survivor twotime --killer azure --map reborn
+  two-time rp --role killer --survivor 007n7 --killer coolkidd --map robloxhq
+
+  # Inside the two-time shell:
+  rp
+  rp quick
+  rp codex
+  rp help
+  ```
+
+---
 
 ## ꥟ Usage
 

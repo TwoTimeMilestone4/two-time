@@ -3,6 +3,7 @@ use colored::Colorize;
 use std::process::Command;
 
 #[derive(Clone)]
+#[allow(dead_code)]
 pub struct Theme {
     pub name: &'static str,
     pub ok: &'static str,
