@@ -1,10 +1,10 @@
 Name:           two-time
-Version:        1.0.0
-Release:        3%{dist}
+Version:        1.1.0
+Release:        1%{dist}
 Summary:        lore-coding shell with Two Time vibe ꥟
 License:        MIT
 URL:            https://github.com/TwoTimeMilestone4/two-time
-Source0:        https://github.com/TwoTimeMilestone4/two-time/archive/refs/tags/v1.0.0.tar.gz
+Source0:        https://github.com/TwoTimeMilestone4/two-time/archive/refs/tags/v1.1.0.tar.gz
 # GitHub tarball is TwoTimeMilestone4/two-time/archive/v1.0.0.tar.gz -> two-time-1.0.0/
 BuildRequires:  cargo rust
 Requires:       zsh
@@ -39,5 +39,13 @@ echo "  ꥟ two-time installed - chsh -s /usr/bin/two-time"
 %{_datadir}/doc/%{name}/README.md
 
 %changelog
+* Wed Nov 4 2026 TwoTimeMilestone4 - 1.1.0-1
+- Added:
++ Launch roleplay directly with two-time rp or the aliases roleplay and forsaken; the shell also supports rp.
++ Quick-start lore encounters, select characters and maps, and browse the Forsaken Codex.
++ Roleplay features include freeform speech and emotes, character abilities, health and resource gauges, emotional stances, ambient events, and Two Time’s Second Life revival.
++ Added a shell help command documenting built-ins and roleplay options.
++ README now documents the roleplay roster, maps, features, and CLI usage.
+
 * Mon Oct 26 2026 TwoTimeMilestone4 - 1.0.0-1
 - Initial lore-coding release - own theme, no p10k, OSC fix
