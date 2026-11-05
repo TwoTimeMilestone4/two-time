@@ -76,11 +76,19 @@ sudo zypper install google-*
 
 ## ꥟ Install Shell — from COPR
 
-On Fedora, enable the COPR repository and install the package:
+On Fedora, RHEL and Mageia enable the COPR repository and install the package:
 
 ```
 sudo dnf copr enable milestone4twotime/two-time
 sudo dnf install two-time
+```
+
+On openSUSE, since they're using zypper instead of dnf, enable the COPR repository and install the package:
+
+```
+sudo zypper ar --refresh https://copr.fedorainfracloud.org/coprs/milestone4twotime/two-time/repo/opensuse-tumbleweed/milestone4twotime-two-time-opensuse-tumbleweed.repo (openSUSE Tumbleweed)
+sudo zypper ar --refresh https://copr.fedorainfracloud.org/coprs/milestone4twotime/two-time/repo/opensuse-leap-16.0/milestone4twotime-two-time-opensuse-leap-16.0.repo (openSUSE Leap 16.0)
+sudo zypper install two-time
 ```
 
 [COPR repository](https://copr.fedorainfracloud.org/coprs/milestone4twotime/two-time/)
