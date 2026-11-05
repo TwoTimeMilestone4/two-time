@@ -140,7 +140,7 @@ chsh -s /usr/bin/two-time
 
 An interactive TUI roleplay system lore-coded directly from [FORSAKEN Wiki](https://forsaken.wiki).
 
-- **Play as Survivor (All 12 as of November 2026)**:
+- **Play as Survivor (All 13 as of Update 5.3.0 / November 2026)**:
   - **Two Time** (Sentinel/Survivalist — Ghostfire Dagger, Oblation gauge, Second Life ritual: *"Never again shall I wonder. Never again shall I hurt. Never again shall I love."*)
   - **Chance** (Sentinel — Loaded revolver & coin-flip trick shots)
   - **Shedletsky** (Sentinel — Telamon Illumina sword, fried chicken feast & admin roar)
@@ -153,6 +153,7 @@ An interactive TUI roleplay system lore-coded directly from [FORSAKEN Wiki](http
   - **Jane Doe** (Sentinel/Support — March 18th investigator, Cabin files & Flashlight taser)
   - **Taph** (Support — Strategic trapper, spring-loaded snares & caltrop scatter)
   - **Veeronica** (Survivalist/Mobility — Rebellious cyber-skater, jet-board kickflips & bumper mode)
+  - **Helperbot / Helpy** (Support — Rebuilt Welcome to Roblox Building assistant, Radar scans, Pulse Regen/Resist, Inspire Haste V aura. 650 PP)
 
 - **Play as Killer (All 8 as of November 2026)**:
   - **Azure / Aspen** (Trapper/Area Denial — Spawn Cult botanist sacrificed by Two Time, 4 black tentacles & Seeker Bulbs)

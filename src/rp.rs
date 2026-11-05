@@ -25,6 +25,7 @@ pub enum SurvivorId {
     JaneDoe,
     Taph,
     Veeronica,
+    Helperbot,
 }
 
 #[allow(dead_code)]
@@ -43,6 +44,7 @@ impl SurvivorId {
             SurvivorId::JaneDoe,
             SurvivorId::Taph,
             SurvivorId::Veeronica,
+            SurvivorId::Helperbot,
         ]
     }
 
@@ -61,6 +63,7 @@ impl SurvivorId {
             "janedoe" | "jane" => Some(Self::JaneDoe),
             "taph" => Some(Self::Taph),
             "veeronica" | "vee" => Some(Self::Veeronica),
+            "helperbot" | "helpy" | "d3functb0t" | "defunctbot" => Some(Self::Helperbot),
             _ => None,
         }
     }
@@ -454,6 +457,20 @@ impl SurvivorData {
                 price: "600 PP",
                 lore_summary: "A former Helper RO-Bot turned free-spirited cyber-skater. Trapped by The Spectre, she uses high-velocity skateboard kicks, phase-shift dashes, and broadcast bumper repulsion to outmaneuver hunters. (forsaken.wiki)",
             },
+            SurvivorId::Helperbot => Self {
+                id,
+                name: "Helperbot (Helpy)",
+                title: "The Rebuilt Assistant",
+                class_type: "Support",
+                weapon: "Cardboard Box & Aluminum Foil Limbs",
+                max_hp: 80,
+                hp: 80,
+                resource_name: "Pulse Charges",
+                resource_val: 1,
+                second_life_used: false,
+                price: "650 PP",
+                lore_summary: "One of seven Helperbot robots created by Builderman & Roblox Staff for Welcome to Roblox Building. Abandoned after Admins vanished; arrived in Forsaken as broken lobby NPC D3functB0t. Rebuilt by Builderman and Veeronica. Excitable, kind, uses emoticons, and assists survivors with Radar scans, Pulse buffs, and Inspire Haste V. (forsaken.wiki)",
+            },
         }
     }
 
@@ -518,6 +535,11 @@ impl SurvivorData {
                 Ability { name: "Skateboard Kickflip Rush", desc: "Rams killer at top speed on jet-board: 25 damage", power: 25 },
                 Ability { name: "Broadcast Bumper Mode", desc: "Emits repulsive energy barrier, deflecting attacks", power: 0 },
                 Ability { name: "Cyber-Battery Overdrive", desc: "Recharges robotic core: restores 28 HP", power: -28 },
+            ],
+            SurvivorId::Helperbot => vec![
+                Ability { name: "Pulse Wave", desc: "Expanding wave granting Regen I + Resistance I (-20% dmg). Consumes stored charges (1-3) for +radius/duration", power: -23 },
+                Ability { name: "Inspire Aura", desc: "10s aura (14 studs) granting allies Haste V (50% faster CD recovery) & generates Pulse charges", power: 0 },
+                Ability { name: "Radar Pulse Scan", desc: "Scans 100 studs every 12s, pinging unfinished generators, items, and tracking survivor auras", power: 15 },
             ],
         }
     }
@@ -801,6 +823,32 @@ impl RoleplaySession {
                 text: "*bites a drumstick and brandishes Illumina blade* \"HA! I survived the dawn of Robloxia, you lumbering freak! Let's see that blade of yours!\"".to_string(),
                 is_narrative: false,
             });
+        } else if self.survivor.id == SurvivorId::Helperbot && self.killer.id == KillerId::C00lkidd {
+            self.log.push(RPLogEntry {
+                speaker: "Helperbot".to_string(),
+                role_tag: "SURVIVOR".to_string(),
+                text: "*antennas wobble frantically with a warning chime* \"[o_o;] Warning! Unauthorized script injection detected! Master Builderman and Veeronica taught me building safety! Please do not delete our teammates!\"".to_string(),
+                is_narrative: false,
+            });
+            self.log.push(RPLogEntry {
+                speaker: "c00lkidd".to_string(),
+                role_tag: "KILLER".to_string(),
+                text: "*red glitch aura flares with mocking laughter* \"A cardboard robot held together by tin foil and tape?! D3functB0t, you should have stayed in the scrap heap where the Bacon Empire dumped you!\"".to_string(),
+                is_narrative: false,
+            });
+        } else if self.survivor.id == SurvivorId::Helperbot && self.killer.id == KillerId::Azure {
+            self.log.push(RPLogEntry {
+                speaker: "Helperbot".to_string(),
+                role_tag: "SURVIVOR".to_string(),
+                text: "*rotates cardboard head with a friendly harmonic chime* \"[^_^] Hello plant friend! Radar indicates severe biological distress! Stay close for Regeneration and Pulse repairs!\"".to_string(),
+                is_narrative: false,
+            });
+            self.log.push(RPLogEntry {
+                speaker: "Azure (Aspen)".to_string(),
+                role_tag: "KILLER".to_string(),
+                text: "*tentacles lash across the stone floor with bitter wrath* \"Repairs?! No amount of aluminum foil or clockwork innocence can mend what Two Time butchered on that altar! Begone, mechanical toy!\"".to_string(),
+                is_narrative: false,
+            });
         } else {
             self.log.push(RPLogEntry {
                 speaker: self.killer.name.to_string(),
@@ -1019,6 +1067,13 @@ impl RoleplaySession {
                     "\"I was programmed to give tutorials, but now I'm schooling monsters!\"",
                     "\"You're too slow for 2026! Eat my neon exhaust!\"",
                 ],
+                SurvivorId::Helperbot => vec![
+                    "\"[^_^] Hello friend! Do not worry, Helperbot is on duty! Stay close for Regeneration and Haste!\"",
+                    "\"(b^_^)b 'The right tools are never far away. Sometimes you just need a little help finding them!' — Builderman\"",
+                    "\"[o_o] Radar scan pinged! Unfinished generator detected within 100 studs! We can finish this together!\"",
+                    "\"[^o^] 'Keep encouraging each other. Nobody builds something great all on their own!' Veeronica says I'm doing great!\"",
+                    "\"[>_<] Ouchie! Aluminum foil limbs slightly dented, but core programming intact! Keep moving!\"",
+                ],
             }
         } else {
             // Player is Killer
@@ -1031,6 +1086,12 @@ impl RoleplaySession {
                             "\"May the hand of nature be more merciful than your human folly!\"",
                             "*tentacles lash across the stone floor* \"The fleeting sound of the wind sounds softer today than usual... as you breathe your last!\"",
                             "\"Give back the breath you stole from me in the name of your false god!\"",
+                        ]
+                    } else if self.survivor.id == SurvivorId::Helperbot {
+                        vec![
+                            "\"Builderman's tin-and-cardboard toy... your pulses cannot cleanse the rot of betrayal.\"",
+                            "\"Did your creator tell you how fragile foil is against the thorns of the forgotten?\"",
+                            "\"May the hand of nature crush your circuits into peaceful silence.\"",
                         ]
                     } else {
                         vec![
@@ -1054,6 +1115,12 @@ impl RoleplaySession {
                             "\"Your scripts are ancient history, Dad! Watch me override your entire existence!\"",
                             "\"You should have stayed out of my way! No one patches my code!\"",
                             "\"Look at the fire, Dad! Isn't it beautiful?!\"",
+                        ]
+                    } else if self.survivor.id == SurvivorId::Helperbot {
+                        vec![
+                            "\"D3functB0t! You should have stayed in pieces after the Bacon Empire finished with you!\"",
+                            "\"No one uses 2008 building bots anymore! Team c00lkidd rules this server!\"",
+                            "\"Watch me rewrite your cardboard hitboxes into zero!\"",
                         ]
                     } else {
                         vec![
@@ -1154,12 +1221,22 @@ impl RoleplaySession {
             // Healing
             let heal = -ab.power;
             self.survivor.hp = (self.survivor.hp + heal).min(self.survivor.max_hp);
-            self.log.push(RPLogEntry {
-                speaker: self.survivor.name.to_string(),
-                role_tag: "SURVIVOR".to_string(),
-                text: format!("*activates {}* Restored {} HP! (Current HP: {}/{})", ab.name, heal, self.survivor.hp, self.survivor.max_hp),
-                is_narrative: false,
-            });
+            if self.survivor.id == SurvivorId::Helperbot {
+                self.survivor.resource_val = 1; // spent charges
+                self.log.push(RPLogEntry {
+                    speaker: self.survivor.name.to_string(),
+                    role_tag: "SURVIVOR".to_string(),
+                    text: format!("*activates {}* Expanding pulse grants Regeneration I & Resistance I (-20% damage)! Consumed all pulse charges. Restored {} HP! (Current HP: {}/{})", ab.name, heal, self.survivor.hp, self.survivor.max_hp),
+                    is_narrative: false,
+                });
+            } else {
+                self.log.push(RPLogEntry {
+                    speaker: self.survivor.name.to_string(),
+                    role_tag: "SURVIVOR".to_string(),
+                    text: format!("*activates {}* Restored {} HP! (Current HP: {}/{})", ab.name, heal, self.survivor.hp, self.survivor.max_hp),
+                    is_narrative: false,
+                });
+            }
         } else if ab.power > 0 {
             // Attack
             self.killer.hp = (self.killer.hp - ab.power).max(0);
@@ -1174,12 +1251,22 @@ impl RoleplaySession {
             });
         } else {
             // Evasion / Utility
-            self.log.push(RPLogEntry {
-                speaker: self.survivor.name.to_string(),
-                role_tag: "SURVIVOR".to_string(),
-                text: format!("*executes {}* Moving into defensive cover!", ab.name),
-                is_narrative: false,
-            });
+            if self.survivor.id == SurvivorId::Helperbot {
+                self.survivor.resource_val = (self.survivor.resource_val + 1).min(3);
+                self.log.push(RPLogEntry {
+                    speaker: self.survivor.name.to_string(),
+                    role_tag: "SURVIVOR".to_string(),
+                    text: format!("*executes {}* 10-second Inspire aura active! Nearby survivors gain Haste V (+50% CD speed). Gained +1 Pulse charge! (Stored charges: {}/3)", ab.name, self.survivor.resource_val),
+                    is_narrative: false,
+                });
+            } else {
+                self.log.push(RPLogEntry {
+                    speaker: self.survivor.name.to_string(),
+                    role_tag: "SURVIVOR".to_string(),
+                    text: format!("*executes {}* Moving into defensive cover!", ab.name),
+                    is_narrative: false,
+                });
+            }
         }
 
         self.update_tension();
@@ -1331,6 +1418,13 @@ impl RoleplaySession {
                         ];
                         replies[self.turn as usize % replies.len()].to_string()
                     }
+                } else if self.survivor.id == SurvivorId::Helperbot {
+                    let replies = [
+                        "*tentacles lash against cardboard and foil* \"Builderman's creation... your pulses cannot cleanse the rot Two Time left behind!\"",
+                        "*seeker bulbs spit caustic purple spores* \"Cardboard wilts easily in poisonous mist, little automaton.\"",
+                        "*whistles a mournful, hollow tune* \"The fleeting sound of the wind sounds softer today than usual... even for hollow tin.\"",
+                    ];
+                    replies[self.turn as usize % replies.len()].to_string()
                 } else {
                     let replies = [
                         "*tentacles coil tightly around broken stone* \"May the hand of nature be more merciful than human folly. You have strayed into my territory.\"",
@@ -1358,6 +1452,13 @@ impl RoleplaySession {
                         "*red aura flares as error codes dance across his skin* \"Stop calling me son! I'm the leader of Team c00lkidd now! Watch this script!\"",
                         "*hurls exploding pizza minions at his father* \"You left me behind, Dad! Now I rewrite the rules of this realm!\"",
                         "*teleports with crimson glitch streaks* \"Your parental firewall is already breached!\"",
+                    ];
+                    replies[self.turn as usize % replies.len()].to_string()
+                } else if self.survivor.id == SurvivorId::Helperbot {
+                    let replies = [
+                        "*cackles as flaming pizza scorches aluminum foil* \"HAHAHA! Look at the cardboard burn! Obsolete bots get no mercy from Team c00lkidd!\"",
+                        "*red aura crackles violently* \"D3functB0t belongs in the scrap bin, not in my trial!\"",
+                        "*overrides collision with a screeching glitch* \"Try scanning through this error code, toaster!\"",
                     ];
                     replies[self.turn as usize % replies.len()].to_string()
                 } else {
@@ -1545,6 +1646,14 @@ impl RoleplaySession {
                     "*grinds board along concrete edge, throwing shower of blue sparks* \"Too slow! Need a tutorial on how to catch a skater?!\"",
                     "*switches comm to broadcast mode with loud feedback whine* \"Bumper forcefield engaged! Bounce right back to the lobby!\"",
                     "*does a clean 360 kickflip over your swipe* \"Style points: ten out of ten! Terror score: zero!\"",
+                ];
+                replies[self.turn as usize % replies.len()].to_string()
+            }
+            SurvivorId::Helperbot => {
+                let replies = [
+                    "*emits an expanding harmonic pulse wave, antennas twitching* \"[^_^] Pulse deployed! Regeneration I and Resistance I active! Hang on, team!\"",
+                    "*briefly pauses in place as glowing Inspire aura expands 14 studs* \"(b^_^)b Haste V activated! Cooldowns recovering fifty percent faster! We can do this!\"",
+                    "*radar sweep scans every 12 seconds with a bright chime* \"[o_o] Unfinished generator highlighted within 100 studs! Don't give up!\"",
                 ];
                 replies[self.turn as usize % replies.len()].to_string()
             }
@@ -1792,7 +1901,7 @@ pub fn select_character_and_start() {
         println!("║ {:<102} ║", "Lore Verified from official wiki: https://forsaken.wiki".cyan());
         println!("{}", "╠════════════════════════════════════════════════════════════════════════════════════════════════════════╣".bright_blue());
         println!("║ {:<102} ║", "CHOOSE YOUR PATH:");
-        println!("║   {} Play as a SURVIVOR (12 Playable Classes: Two Time, 007n7, Builderman...) {:<23} ║", "[1]".bold().green(), "");
+        println!("║   {} Play as a SURVIVOR (13 Playable Classes: Two Time, Helperbot, 007n7...) {:<20} ║", "[1]".bold().green(), "");
         println!("║   {} Play as a KILLER (8 Playable Horrors: Azure, Slasher, c00lkidd, Noli, Nosferatu...) {:<13} ║", "[2]".bold().red(), "");
         println!("║   {} Canonical Lore Clashes (Two Time vs Azure, 007n7 vs c00lkidd, Jane vs John...) {:<17} ║", "[3]".bold().magenta(), "");
         println!("║   {} Read Full Forsaken Roster & Map Codex (November 2026 Database) {:<30} ║", "[4]".bold().yellow(), "");
@@ -1836,7 +1945,7 @@ pub fn select_character_and_start() {
 
 fn prompt_survivor_setup(rl: &mut DefaultEditor) -> Option<(SurvivorId, KillerId, Arena)> {
     print!("\x1b[2J\x1b[1;1H");
-    println!("{}", "─── SELECT YOUR SURVIVOR CHARACTER (All 12 as of November 2026 | https://forsaken.wiki) ───".bold().green());
+    println!("{}", "─── SELECT YOUR SURVIVOR CHARACTER (All 13 as of Update 5.3.0 | https://forsaken.wiki) ───".bold().green());
     println!("  [ 1] Two Time       — Sentinel/Survivalist (Ghostfire Dagger, Oblation, Second Life ritual)");
     println!("  [ 2] Chance         — Sentinel (Loaded Six-Shooter, Lucky Gold Coin, Coin Flip Trick Shot)");
     println!("  [ 3] Shedletsky     — Sentinel (Telamon Illumina Sword, Crispy Fried Chicken)");
@@ -1849,8 +1958,9 @@ fn prompt_survivor_setup(rl: &mut DefaultEditor) -> Option<(SurvivorId, KillerId
     println!("  [10] Jane Doe       — Sentinel/Support (Classified Dossier, Flashlight Taser, March 18th)");
     println!("  [11] Taph           — Support (Spring Trap Launcher, Spiked Tripwires, Caltrop Scatter)");
     println!("  [12] Veeronica      — Survivalist/Mobility (Neon Jet-Skateboard, Broadcast Bumper, Phase Shift)");
+    println!("  [13] Helperbot      — Support (Radar passive, Pulse Regen/Resist, Inspire Haste V, Rebuilt D3functB0t)");
     println!("  [ 0] Back");
-    print!("\n  ꥟ Choose Survivor [1-12]: ");
+    print!("\n  ꥟ Choose Survivor [1-13]: ");
     let _ = io::stdout().flush();
 
     let s_id = match rl.readline("").ok()?.trim() {
@@ -1866,6 +1976,7 @@ fn prompt_survivor_setup(rl: &mut DefaultEditor) -> Option<(SurvivorId, KillerId
         "10" => SurvivorId::JaneDoe,
         "11" => SurvivorId::Taph,
         "12" => SurvivorId::Veeronica,
+        "13" => SurvivorId::Helperbot,
         _ => return None,
     };
 
@@ -1937,7 +2048,8 @@ fn prompt_killer_setup(rl: &mut DefaultEditor) -> Option<(SurvivorId, KillerId, 
     println!("  [10] Jane Doe       — Sentinel/Support (Classified Dossier, Flashlight Taser, March 18th)");
     println!("  [11] Taph           — Support (Spring Trap Launcher, Spiked Tripwires, Caltrop Scatter)");
     println!("  [12] Veeronica      — Survivalist/Mobility (Neon Jet-Skateboard, Broadcast Bumper, Phase Shift)");
-    print!("\n  ꥟ Choose Survivor [1-12]: ");
+    println!("  [13] Helperbot      — Support (Radar passive, Pulse Regen/Resist, Inspire Haste V, Rebuilt D3functB0t)");
+    print!("\n  ꥟ Choose Survivor [1-13]: ");
     let _ = io::stdout().flush();
 
     let s_id = match rl.readline("").ok()?.trim() {
@@ -1953,6 +2065,7 @@ fn prompt_killer_setup(rl: &mut DefaultEditor) -> Option<(SurvivorId, KillerId, 
         "10" => SurvivorId::JaneDoe,
         "11" => SurvivorId::Taph,
         "12" => SurvivorId::Veeronica,
+        "13" => SurvivorId::Helperbot,
         _ => SurvivorId::TwoTime,
     };
 
@@ -2067,7 +2180,7 @@ pub fn display_full_codex(rl: &mut DefaultEditor) {
     println!("║ {:<102} ║", "꥟ FORSAKEN WIKI COMPLETE ROSTER & MAP CODEX (NOVEMBER 2026) ꥟".bold().truecolor(122, 165, 214));
     println!("║ {:<102} ║", "Verified from: https://forsaken.wiki".cyan());
     println!("{}", "╠════════════════════════════════════════════════════════════════════════════════════════════════════════╣".bright_blue());
-    println!("║ {:<102} ║", "SURVIVORS (12 Playable Classes):".bold().green());
+    println!("║ {:<102} ║", "SURVIVORS (13 Playable Classes):".bold().green());
     println!("║ • Two Time (Sentinel/Survivalist): Ghostfire Dagger, Oblation gauge, Second Life ritual. 500 PP.    ║");
     println!("║ • Chance (Sentinel): High-stakes gambler with loaded revolver and 50/50 coin-flip trick shots. 500 PP║");
     println!("║ • Shedletsky (Sentinel): Telamon Illumina blade, battle roar, and bucket of fried chicken. Free.    ║");
@@ -2080,6 +2193,7 @@ pub fn display_full_codex(rl: &mut DefaultEditor) {
     println!("║ • Jane Doe (Sentinel/Support): March 18th investigator, Cabin files, Flashlight taser. Quest unlock.║");
     println!("║ • Taph (Support): Strategic trapper, spring-loaded snares, caltrop scatter, field bandages. 500 PP. ║");
     println!("║ • Veeronica (Survivalist/Mobility): Rebellious cyber-skater, jet-board kickflips, bumper mode. 600 PP║");
+    println!("║ • Helperbot (Support): Rebuilt D3functB0t, Radar scan, Pulse Regen/Resist, Inspire Haste V. 650 PP. ║");
     println!("{}", "╠════════════════════════════════════════════════════════════════════════════════════════════════════════╣".bright_blue());
     println!("║ {:<102} ║", "KILLERS (8 Playable Horrors & Myths):".bold().red());
     println!("║ • Azure / Aspen (Trapper/Area Denial): Sacrificed botanist, 4 black tentacles, Seeker Bulbs. $2000PP║");
