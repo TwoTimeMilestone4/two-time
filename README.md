@@ -1,4 +1,7 @@
 # ꥟ two-time — lore-coding
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 ![Roblox Forsaken](https://img.shields.io/badge/Roblox-Forsaken-000000?style=for-the-badge&logo=roblox&logoColor=white)
 ![Rust](https://img.shields.io/badge/Rust-Custom_Shell-CEA185?style=for-the-badge&logo=rust&logoColor=black)
@@ -254,3 +257,25 @@ Vibecoding = prompt "make cool two time shell" → random colors + † → done,
 Lore-coding = search FORSAKEN Wiki official colors, fix ꥟ glyph check, correct package managers per distro (dnf vs zypper), fix `azure@void` to dynamic USER@HOST, fix double , fix OSC cur[...]
 
 GLORY TO THE SPAWN — ꥟
+
+## Contributors ✨
+
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/en/reference/emoji-key/)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tbody>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/t1m3-2"><img src="https://avatars.githubusercontent.com/u/268237098?v=4&size=100" width="100px" height="100px" alt="Time"/><br /><sub><b>Time</b></sub></a><br /><a href="https://github.com/TwoTimeMilestone4/two-time/commits?author=t1m3-2" title="Code">💻</a> <a href="https://github.com/TwoTimeMilestone4/two-time/commits?author=t1m3-2" title="Tests">⚠️</a> <a href="https://github.com/TwoTimeMilestone4/two-time/pulls?q=is%3Apr+reviewed-by%3At1m3-2" title="Reviewed Pull Requests">👀</a> <a href="https://github.com/TwoTimeMilestone4/two-time/issues?q=author%3At1m3-2" title="Bug reports">🐛</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
