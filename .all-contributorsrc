@@ -1,0 +1,29 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "commitType": "docs",
+  "commitConvention": "angular",
+  "contributors": [
+    {
+      "login": "t1m3-2",
+      "name": "Time",
+      "avatar_url": "https://avatars.githubusercontent.com/u/268237098?v=4",
+      "profile": "https://github.com/t1m3-2",
+      "contributions": [
+        "code",
+        "test",
+        "review",
+        "bug"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "skipCi": true,
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "projectName": "two-time",
+  "projectOwner": "TwoTimeMilestone4"
+}
