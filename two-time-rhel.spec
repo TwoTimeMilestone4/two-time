@@ -2,7 +2,7 @@
 
 Name:           two-time
 Version:        1.1.1
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        lore-coding shell with Two Time vibe ꥟
 License:        MIT
 URL:            https://github.com/TwoTimeMilestone4/two-time
@@ -10,8 +10,18 @@ Source0:        https://github.com/TwoTimeMilestone4/two-time/archive/refs/tags/
 # GitHub tarball is TwoTimeMilestone4/two-time/archive/v1.0.0.tar.gz -> two-time-1.0.0/
 BuildRequires:  cargo rust
 Requires:       zsh
-Requires:       google-noto-sans-rejang-fonts
-Requires:       google-noto-fonts-all
+
+# Font - Patches for Enterprise Linux (Depends on package name)
+%if 0%{?rhel} == 8
+Requires: google-noto-sans-fonts
+Requires: google-noto-sans-rejang-fonts
+%elif 0%{?rhel} == 9
+Requires: google-noto-sans-fonts
+Requires: google-noto-sans-rejang-fonts
+%else
+Requires: google-noto-fonts-all
+Requires: google-noto-sans-rejang-fonts
+%endif
 
 %description
 A fragile cultist that holds a terrible secret. Bearing nothing other than a sleek dagger and a manic smile, they're able to earn a second life through risk and sacrifice.
@@ -40,6 +50,8 @@ echo "  ꥟ two-time installed - chsh -s /usr/bin/two-time"
 %{_datadir}/doc/%{name}/README.md
 
 %changelog
+* Tue Nov 24 2026 TwoTimeMilestone4 - 1.1.1-2
+- Fix EL9 font dependencies issue: spilted packages for EL8, EL9 and EL10
 * Thu Nov 5 2026 TwoTimeMilestone4 - 1.1.1-1
 - Added:
 + HelperBot into Forsaken Roleplay (According to Forsaken Wiki)
