@@ -12,7 +12,7 @@ BuildRequires:  cargo rust
 Requires:       zsh
 
 # Font - Patches for Enterprise Linux (Depends on package name)
-Requires: google-*
+Requires: google-noto*
 
 %description
 A fragile cultist that holds a terrible secret. Bearing nothing other than a sleek dagger and a manic smile, they're able to earn a second life through risk and sacrifice.
