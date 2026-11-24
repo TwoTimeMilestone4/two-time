@@ -13,9 +13,9 @@ Requires:       zsh
 
 # Font - Patches for Enterprise Linux (Depends on package name)
 %if 0%{?rhel} == 8
-Requires: google-noto-*
-%elif 0%{?rhel} == 9
-Requires: google-noto-*
+Requires: google-*
+%if 0%{?rhel} == 9
+Requires: google-*
 %else
 Requires: google-noto-fonts-all
 Requires: google-noto-sans-rejang-fonts
