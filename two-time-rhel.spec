@@ -12,14 +12,7 @@ BuildRequires:  cargo rust
 Requires:       zsh
 
 # Font - Patches for Enterprise Linux (Depends on package name)
-%if 0%{?rhel} == 8
 Requires: google-*
-%if 0%{?rhel} == 9
-Requires: google-*
-%else
-Requires: google-noto-fonts-all
-Requires: google-noto-sans-rejang-fonts
-%endif
 
 %description
 A fragile cultist that holds a terrible secret. Bearing nothing other than a sleek dagger and a manic smile, they're able to earn a second life through risk and sacrifice.
