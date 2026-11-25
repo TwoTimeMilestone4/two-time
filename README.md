@@ -1,6 +1,6 @@
 # ꥟ two-time — lore-coding
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 ![Roblox Forsaken](https://img.shields.io/badge/Roblox-Forsaken-000000?style=for-the-badge&logo=roblox&logoColor=white)
@@ -268,8 +268,8 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/e
 <table>
   <tbody>
     <tr>
-      <td align="center" valign="top" width="14.28%"><a href="https://github.com/t1m3-2"><img src="https://avatars.githubusercontent.com/u/268237098?v=4&size=100" width="100px" height="100px" alt="Time"/><br /><sub><b>Time</b></sub></a><br /><a href="https://github.com/TwoTimeMilestone4/two-time/commits?author=t1m3-2" title="Code">💻</a> <a href="https://github.com/TwoTimeMilestone4/two-time/commits?author=t1m3-2" title="Tests">⚠️</a> <a href="https://github.com/TwoTimeMilestone4/two-time/pulls?q=is%3Apr+reviewed-by%3At1m3-2" title="Reviewed Pull Requests">👀</a> <a href="https://github.com/TwoTimeMilestone4/two-time/issues?q=author%3At1m3-2" title="Bug reports">🐛</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/randomcr3o"><img src="https://avatars.githubusercontent.com/u/94728590?v=4&size=100" width="100px" height="100px" alt="randomcreo"/><br /><sub><b>randomcreo</b></sub></a><br /><a href="https://github.com/TwoTimeMilestone4/two-time/commits?author=randomcr3o" title="Code">💻</a> <a href="https://github.com/TwoTimeMilestone4/two-time/commits?author=randomcr3o" title="Tests">⚠️</a> <a href="https://github.com/TwoTimeMilestone4/two-time/pulls?q=is%3Apr+reviewed-by%3Arandomcr3o" title="Reviewed Pull Requests">👀</a> <a href="https://github.com/TwoTimeMilestone4/two-time/issues?q=author%3Arandomcr3o" title="Bug reports">🐛</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/AmarahForsakenRBLX"><img src="https://avatars.githubusercontent.com/u/361131138?v=4&size=100" width="100px" height="100px" alt="Elder Amarah (Taken)"/><br /><sub><b>Elder Amarah (Taken)</b></sub></a><br /><a href="https://github.com/TwoTimeMilestone4/two-time/commits?author=AmarahForsakenRBLX" title="Code">💻</a> <a href="https://github.com/TwoTimeMilestone4/two-time/commits?author=AmarahForsakenRBLX" title="Tests">⚠️</a></td>
     </tr>
   </tbody>
 </table>
